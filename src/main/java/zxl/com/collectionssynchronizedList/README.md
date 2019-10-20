@@ -1,0 +1,4 @@
+翻看源码Collections.synchronizedList->SynchronizedList可以发现add方法加了锁,所以add时我们就不用加锁;遍历时则避免数据被其他线程串改,所以加锁保护;
+
+synchronizedList在迭代的时候，需要开发者自己加上线程锁控制代码，因为在整个迭代的过程中如果在循环外面不加同步代码，在一次次迭代之间，其他线程对于
+这个容器的add或者remove会影响整个迭代的预期效果，所以这里需要用户在整个循环外面加上synchronized(list);

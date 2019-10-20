@@ -1,0 +1,15 @@
+HashSet是如何保证元素的不重复和无序
+
+答：因为HashSet的底层存储结构是HashMap，并且HashSet中的元素是作为Map的Key存储到Map中，所以HashMap中Key是不重复且无序，所以HashSet中的元素也就是不重复和无序的
+
+HashSet的增删（改查？）原理
+
+HashSet的增删原理很简单，就是map的put和remove，为什么没有改查呢？那是因为HashSet中的元素是无序的，没办法根据索引进行查询和修改
+
+CopyOnWriteArraySet支持并发的原理
+
+CopyOnWriteArraySet之所以叫CopyOnWriteArraySet，是因为它的底层存储结构是CopyOnWriteArrayList，同时也就是保证了它的并发安全性
+
+CopyOnWriteArraySet的增删（改查？）原理
+
+CopyOnWriteArraySet继承了AbstractSet，跟HashSet一样只有增删，没有改查，增删原理也就是调用CopyOnWriteArrayList的增删方法，只不过增的时候需要判断一下List中是否存储该元素

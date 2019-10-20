@@ -1,0 +1,18 @@
+hashmap 是非同步的，故在多线程中是线程不安全的，不过也可以使用 同步类来进行包装:
+
+包装类Collections.synchronizedMap（）和Collections.synchronizedList（）提供了一个基本的有条件的线程安全的Map和List实现。
+
+   
+
+ConcurrentHashMap和Hashtable之间的区别
+那么Hashtable和ConcurrentHashMap之间的区别是什么，可以在多线程环境中使用，但一旦Hashtable的大小变得相当大的性能降低，因为迭代它必须被锁定更长的时间。
+
+由于ConcurrentHashMap引入了分段的概念，所以它只有一部分被锁定才能提供线程安全性. 
+
+总而言之，ConcurrentHashMap仅锁定Map的某些部分，而Hashtable在执行迭代时锁定完整映射。 
+ 
+ConcurrentHashMap和Collections.synchronizedMap之间的区别
+ConcurrentHashMap旨在实现并发性能，提高性能，而通过使用synchronized Map应用包装器，可以同步自然不同步的HashMap。
+ 
+以下是ConcurrentHashMap和Java中的同步映射之间的一些常见区别
+    ConcurrentHashMap 不允许空值或空值同步,但是HashMap允许一个空键。
