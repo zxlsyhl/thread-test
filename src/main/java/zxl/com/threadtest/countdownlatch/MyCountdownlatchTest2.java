@@ -12,5 +12,6 @@ public class MyCountdownlatchTest2 {
             CountRunnable runnable = new CountRunnable(cdl);
             pool.execute(runnable);
         }
+        pool.shutdown();
     }
 }
