@@ -25,7 +25,7 @@ public class ThreadPoolExecutorTest {
                 }
             });
         }
-        poolExecutor.shutdown();
+//        poolExecutor.shutdown();
         System.out.println("on the main thread...");
     }
 }
